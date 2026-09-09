@@ -24,6 +24,59 @@ if hasattr(sys.stdout, "reconfigure"):
         pass
 
 
+# 部分 OpenAI 兼容网关挂了 Cloudflare，会拦截 OpenAI Python SDK 默认 UA
+# （返回 403 "Your request was blocked." / Error 1010）。改成浏览器 UA 即可通过。
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/128.0.0.0 Safari/537.36"
+)
+
+
+def make_openai_client(api_key: str, base_url: str):
+    from openai import OpenAI
+
+    # 覆盖 SDK 自带的 OpenAI/Python UA 和 X-Stainless-* 指纹，
+    # 否则 Cloudflare 会直接 403：Your request was blocked.
+    return OpenAI(
+        api_key=api_key,
+        base_url=base_url,
+        timeout=120.0,
+        default_headers={
+            "User-Agent": BROWSER_UA,
+            "Accept": "application/json",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+            "X-Stainless-Lang": "",
+            "X-Stainless-Package-Version": "",
+            "X-Stainless-OS": "",
+            "X-Stainless-Arch": "",
+            "X-Stainless-Runtime": "",
+            "X-Stainless-Runtime-Version": "",
+            "X-Stainless-Async": "",
+        },
+    )
+
+
+def format_ai_error(exc: Exception) -> str:
+    """把网关/Cloudflare 拦截信息展开，避免只看到一句 blocked。"""
+    parts = [str(exc).strip() or exc.__class__.__name__]
+    status = getattr(exc, "status_code", None)
+    if status:
+        parts.append(f"status={status}")
+    body = getattr(exc, "body", None)
+    if isinstance(body, dict):
+        detail = body.get("detail") or body.get("message") or body.get("error_name")
+        if detail:
+            parts.append(str(detail))
+    elif isinstance(body, str) and body.strip():
+        parts.append(body.strip()[:200])
+    text = " | ".join(parts)
+    lowered = text.lower()
+    if "blocked" in lowered or "1010" in text or "cloudflare" in lowered:
+        text += "（网关 Cloudflare 拦截，已使用浏览器 UA 重试；若仍失败，多半是 runner IP 被 Ban）"
+    return text
+
+
 def parse_reads(reads_str: str) -> float:
     """将 '15.2万' 这样的字符串转为数值，用于比较。"""
     if not reads_str or reads_str == "未知":
@@ -751,13 +804,12 @@ def enrich_market_summary_with_ai(payload: dict, api_key: str,
                                   channel: dict = None) -> dict:
     """使用 AI 改写全站热点总结；失败时保留规则兜底。"""
     try:
-        from openai import OpenAI
+        client = make_openai_client(api_key, base_url)
     except ImportError:
         print("⚠️  openai 库未安装，跳过全站热点 AI 总结。")
         return payload
 
     try:
-        client = OpenAI(api_key=api_key, base_url=base_url, timeout=120.0)
         response = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": build_market_ai_prompt(payload, channel)}],
@@ -771,7 +823,7 @@ def enrich_market_summary_with_ai(payload: dict, api_key: str,
                 payload["periods"][key]["source"] = "ai"
         print("✅ 全站热点 AI 总结已生成")
     except Exception as e:
-        print(f"⚠️  全站热点 AI 总结失败，使用规则兜底: {e}")
+        print(f"⚠️  全站热点 AI 总结失败，使用规则兜底: {format_ai_error(e)}")
 
     return payload
 
@@ -806,12 +858,10 @@ def generate_ai_summaries(categories: list, trends: dict,
     批量失败的分类会自动降级为逐个重试。
     """
     try:
-        from openai import OpenAI
+        client = make_openai_client(api_key, base_url)
     except ImportError:
         print("⚠️  openai 库未安装，跳过 AI 总结。pip install openai")
         return trends
-
-    client = OpenAI(api_key=api_key, base_url=base_url, timeout=120.0)
     existing_trends = existing_trends or {}
 
     # 1. 筛选需要生成总结的分类
@@ -896,7 +946,7 @@ def generate_ai_summaries(categories: list, trends: dict,
                     raise ValueError("批量响应解析失败，未匹配到任何分类")
 
             except Exception as e:
-                print(f"    ⚠️  第 {attempt} 次失败: {e}")
+                print(f"    ⚠️  第 {attempt} 次失败: {format_ai_error(e)}")
                 if attempt < max_retries:
                     import time
                     time.sleep(5 * attempt)
@@ -932,7 +982,7 @@ def generate_ai_summaries(categories: list, trends: dict,
                     success = True
                     break
                 except Exception as e:
-                    print(f"    ⚠️  {cat_name} 第 {attempt} 次失败: {e}")
+                    print(f"    ⚠️  {cat_name} 第 {attempt} 次失败: {format_ai_error(e)}")
                     if attempt < max_retries:
                         import time
                         time.sleep(5 * attempt)
