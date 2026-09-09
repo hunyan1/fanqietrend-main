@@ -1,20 +1,8 @@
 {
-  "channel": "audio",
   "date": "2026-09-09",
-  "prev_date": "",
   "categories": [
     {
       "name": "男频 · 西方奇幻",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "人在诡异，靠第四天灾登顶至高",
@@ -180,16 +168,6 @@
     },
     {
       "name": "男频 · 东方仙侠",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "凡骨",
@@ -355,16 +333,6 @@
     },
     {
       "name": "男频 · 科幻末世",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "末日生存方案供应商",
@@ -530,16 +498,6 @@
     },
     {
       "name": "男频 · 都市日常",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "公安局长之扫黑风暴",
@@ -705,16 +663,6 @@
     },
     {
       "name": "男频 · 都市修真",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "国术：每日结算，从黄包车夫开始",
@@ -880,16 +828,6 @@
     },
     {
       "name": "男频 · 都市高武",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "时停起手，邪神也得给我跪下！",
@@ -1055,16 +993,6 @@
     },
     {
       "name": "男频 · 历史古代",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "冒姓琅琊",
@@ -1230,16 +1158,6 @@
     },
     {
       "name": "男频 · 战神赘婿",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "从零开始，打造华夏首支特种部队",
@@ -1405,16 +1323,6 @@
     },
     {
       "name": "男频 · 都市种田",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "重生后，姐姐非要嫁给我",
@@ -1580,16 +1488,6 @@
     },
     {
       "name": "男频 · 传统玄幻",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "惊鸿",
@@ -1755,16 +1653,6 @@
     },
     {
       "name": "男频 · 历史脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "让你荒淫无道，千古一帝什么鬼？",
@@ -1930,16 +1818,6 @@
     },
     {
       "name": "男频 · 悬疑脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "十日终焉",
@@ -2105,16 +1983,6 @@
     },
     {
       "name": "男频 · 都市脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "系统想害我，我选择上交国家",
@@ -2280,16 +2148,6 @@
     },
     {
       "name": "男频 · 玄幻脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "这个游戏不对劲，我挖矿成神！",
@@ -2455,16 +2313,6 @@
     },
     {
       "name": "男频 · 悬疑灵异",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "我以狐仙镇百鬼",
@@ -2630,16 +2478,6 @@
     },
     {
       "name": "男频 · 抗战谍战",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "别人穿四合院，我为啥上战场",
@@ -2805,16 +2643,6 @@
     },
     {
       "name": "男频 · 游戏体育",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "列车求生，我能升华一切！",
@@ -2980,16 +2808,6 @@
     },
     {
       "name": "男频 · 动漫衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "火影：人在木叶村，开局觉醒木遁",
@@ -3155,16 +2973,6 @@
     },
     {
       "name": "男频 · 男频衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "名义：开局我举报我自己",
@@ -3330,16 +3138,6 @@
     },
     {
       "name": "女频 · 古风世情",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "惹金枝",
@@ -3505,16 +3303,6 @@
     },
     {
       "name": "女频 · 科幻末世",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "极寒末世，我跟着重生者买买买",
@@ -3680,16 +3468,6 @@
     },
     {
       "name": "女频 · 游戏体育",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "游戏入侵：抢男女主机缘会上瘾诶",
@@ -3855,16 +3633,6 @@
     },
     {
       "name": "女频 · 女频衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "穿成依萍，我带雪姨制霸上海滩",
@@ -4030,16 +3798,6 @@
     },
     {
       "name": "女频 · 玄幻言情",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "剑宗小魔童，三岁半超凶",
@@ -4205,16 +3963,6 @@
     },
     {
       "name": "女频 · 种田",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "穿成农女：带着八个弟弟发家致富",
@@ -4380,16 +4128,6 @@
     },
     {
       "name": "女频 · 年代",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "七零：小狐狸崽在线找爹",
@@ -4555,16 +4293,6 @@
     },
     {
       "name": "女频 · 现言脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "小炮灰变美后，抢了财阀太子爷",
@@ -4730,16 +4458,6 @@
     },
     {
       "name": "女频 · 宫斗宅斗",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "入宫即高位，我是陛下表妹我怕谁",
@@ -4905,16 +4623,6 @@
     },
     {
       "name": "女频 · 悬疑脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "宿舍求生：从刷广告开始变强",
@@ -5080,16 +4788,6 @@
     },
     {
       "name": "女频 · 古言脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "脑子一热，强吻了我哥的同窗好友",
@@ -5255,16 +4953,6 @@
     },
     {
       "name": "女频 · 快穿",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "吃软饭！是人设",
@@ -5430,16 +5118,6 @@
     },
     {
       "name": "女频 · 青春甜宠",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "怎敌她动人",
@@ -5605,16 +5283,6 @@
     },
     {
       "name": "女频 · 星光璀璨",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "万人迷神颜顶流只想演炮灰",
@@ -5780,16 +5448,6 @@
     },
     {
       "name": "女频 · 女频悬疑",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "当个社畜，怎么成凶案嫌疑人了？",
@@ -5955,16 +5613,6 @@
     },
     {
       "name": "女频 · 职场婚恋",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "远嫁八年，回娘家难如登天！",
@@ -6130,16 +5778,6 @@
     },
     {
       "name": "女频 · 豪门总裁",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "京圈公主抢我男友，我结婚她疯了",
@@ -6305,16 +5943,6 @@
     },
     {
       "name": "女频 · 民国言情",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "天降小福星，帅府全家宠上天",

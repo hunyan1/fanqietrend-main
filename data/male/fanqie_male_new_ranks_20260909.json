@@ -1,20 +1,8 @@
 {
-  "channel": "male",
   "date": "2026-09-09",
-  "prev_date": "",
   "categories": [
     {
       "name": "西方奇幻",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "魔女金词条？我反派先薅为敬！",
@@ -180,16 +168,6 @@
     },
     {
       "name": "东方仙侠",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "我，酆都，在鸿钧成圣前立地府",
@@ -355,16 +333,6 @@
     },
     {
       "name": "科幻末世",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "末世选择：开局一亿只美洲大蠊",
@@ -530,16 +498,6 @@
     },
     {
       "name": "都市日常",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "女尊，独自抚养妹妹们的正太哥哥",
@@ -705,16 +663,6 @@
     },
     {
       "name": "都市修真",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "灵气复苏：别装了，华夏真有仙！",
@@ -880,16 +828,6 @@
     },
     {
       "name": "都市高武",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "猎魔人小姐，我真不是血族",
@@ -1055,16 +993,6 @@
     },
     {
       "name": "历史古代",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "欢宋",
@@ -1230,16 +1158,6 @@
     },
     {
       "name": "战神赘婿",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "开局四选一，我选成为沪圈少爷！",
@@ -1405,16 +1323,6 @@
     },
     {
       "name": "都市种田",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "身家300亿美刀，重回1988",
@@ -1580,16 +1488,6 @@
     },
     {
       "name": "传统玄幻",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "神通者",
@@ -1755,16 +1653,6 @@
     },
     {
       "name": "历史脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "大唐：言出法随，都以为我是仙！",
@@ -1930,16 +1818,6 @@
     },
     {
       "name": "悬疑脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "诡舍2",
@@ -2105,16 +1983,6 @@
     },
     {
       "name": "都市脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "打卡双人骑行圈，开局拿捏假名媛",
@@ -2280,16 +2148,6 @@
     },
     {
       "name": "玄幻脑洞",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "轮回修仙：从考科举开始",
@@ -2455,16 +2313,6 @@
     },
     {
       "name": "悬疑灵异",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "九门：我黑龙血脉，镇压九门！",
@@ -2630,16 +2478,6 @@
     },
     {
       "name": "抗战谍战",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "穿越成国公，咋就是封建余孽了？",
@@ -2805,16 +2643,6 @@
     },
     {
       "name": "游戏体育",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "退游六年，剑仙老婆现实找上门了",
@@ -2980,16 +2808,6 @@
     },
     {
       "name": "动漫衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "超神：成为裁决天使后，我无敌了",
@@ -3155,16 +2973,6 @@
     },
     {
       "name": "男频衍生",
-      "trend": {
-        "new_count": 0,
-        "dropped_count": 0,
-        "new_books": [],
-        "dropped_books": [],
-        "top_risers": [],
-        "top_fallers": [],
-        "reads_growth": [],
-        "summary": "榜单无明显变动。"
-      },
       "books": [
         {
           "title": "名义：我避开祁同伟几十年",
