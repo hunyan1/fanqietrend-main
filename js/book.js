@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const detail = document.getElementById('book-detail');
+    const channel = window.FanqieChannels.applyPageMeta();
     const cacheBuster = `v=${Math.floor(Date.now() / 600000)}`;
     const maxDays = 30;
     const copyToast = document.createElement('div');
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const dateIndex = await fetchJson(`data/dates.json?${cacheBuster}`);
+            const dateIndex = await fetchJson(`${channel.datesFile}?${cacheBuster}`);
             const dates = (dateIndex.dates || []).slice().sort().slice(-maxDays);
             const snapshots = await Promise.all(
                 dates.map(date => fetchJson(`${snapshotUrl(date)}?${cacheBuster}`).catch(() => null))
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function snapshotUrl(date) {
-        return `data/fanqie_female_new_ranks_${date.replace(/-/g, '')}.json`;
+        return window.FanqieChannels.snapshotUrl(channel, date);
     }
 
     function fetchJson(url) {
@@ -308,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
         detail.innerHTML = `
             <div class="book-empty-state">
                 <p>${escapeHtml(message)}</p>
-                <a href="index.html" class="back-link">返回榜单</a>
+                <a href="${window.FanqieChannels.withChannel('index.html')}" class="back-link">返回榜单</a>
             </div>
         `;
     }

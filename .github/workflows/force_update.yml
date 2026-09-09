@@ -69,9 +69,10 @@ jobs:
 
     - name: Run Scraper (仅当天)
       if: steps.date.outputs.is_today == 'true'
-      run: python scrape_fanqie_ranks.py
+      run: python scrape_fanqie_ranks.py --channel all
       env:
         GITHUB_ACTIONS: true
+        PYTHONIOENCODING: utf-8
 
     - name: Build Latest Data with AI Summary (Force)
       run: pip install openai && python scripts/build_latest.py --force --date ${{ steps.date.outputs.dash_date }}
@@ -84,7 +85,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "[Force] Re-summarize Fanqie ranks (${{ steps.date.outputs.dash_date }})"
-        file_pattern: data/*
+        file_pattern: data api
         branch: main
 
     # ---- Deploy to GitHub Pages ----

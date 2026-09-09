@@ -32,13 +32,22 @@ jobs:
       id: check_data
       run: |
         TODAY=$(date -u +"%Y%m%d")
-        FILE="data/fanqie_female_new_ranks_${TODAY}.json"
-        if [ -f "$FILE" ]; then
+        FEMALE="data/fanqie_female_new_ranks_${TODAY}.json"
+        MALE="data/male/fanqie_male_new_ranks_${TODAY}.json"
+        AUDIO="data/audio/fanqie_audio_ranks_${TODAY}.json"
+        MISSING=""
+        [ -f "$FEMALE" ] || MISSING="${MISSING} female"
+        [ -f "$MALE" ] || MISSING="${MISSING} male"
+        [ -f "$AUDIO" ] || MISSING="${MISSING} audio"
+        if [ -z "$MISSING" ]; then
           echo "exists=true" >> $GITHUB_OUTPUT
-          echo "✅ 今日数据已存在: $FILE，跳过爬取"
+          echo "channels=all" >> $GITHUB_OUTPUT
+          echo "✅ 今日三个频道数据均已存在，跳过爬取"
         else
           echo "exists=false" >> $GITHUB_OUTPUT
-          echo "📭 今日数据不存在，将执行爬取"
+          CHANNELS=$(echo "$MISSING" | xargs | tr ' ' ',')
+          echo "channels=$CHANNELS" >> $GITHUB_OUTPUT
+          echo "📭 缺少频道:$MISSING ，将执行爬取"
         fi
 
     - name: Set up Python
@@ -57,9 +66,10 @@ jobs:
 
     - name: Run Scraper
       if: steps.check_data.outputs.exists == 'false'
-      run: python scrape_fanqie_ranks.py
+      run: python scrape_fanqie_ranks.py --channel ${{ steps.check_data.outputs.channels }}
       env:
         GITHUB_ACTIONS: true
+        PYTHONIOENCODING: utf-8
 
     - name: Build Latest Data with AI Summary
       run: pip install openai && python scripts/build_latest.py

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const datePrevBtn = document.getElementById('date-prev');
     const dateNextBtn = document.getElementById('date-next');
 
+    const channel = window.FanqieChannels.applyPageMeta();
     let allData = null;
     let typingTimer = null;
     let availableDates = [];   // sorted list of "YYYY-MM-DD"
@@ -79,14 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ========== Date Navigation ==========
     function updateDateNav() {
-        const isLatest = currentDateIndex === availableDates.length - 1;
-        const isFirst = currentDateIndex <= 0;
+        const hasDates = availableDates.length > 0 && currentDateIndex >= 0;
+        const isLatest = !hasDates || currentDateIndex === availableDates.length - 1;
+        const isFirst = !hasDates || currentDateIndex <= 0;
 
         datePrevBtn.disabled = isFirst;
         dateNextBtn.disabled = isLatest;
 
         const currentDate = availableDates[currentDateIndex];
-        dateDisplay.textContent = currentDate || '加载中...';
+        dateDisplay.textContent = currentDate || (availableDates.length ? '加载中...' : '暂无数据');
 
         // Highlight if viewing historical (non-latest) data
         if (isLatest) {
@@ -157,6 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (idx !== -1) {
             currentDateIndex = idx;
             loadDateData(selected);
+        } else if (availableDates.length === 0) {
+            showToast(`${selected} 无数据`);
         } else {
             // Find nearest available date and show friendly hint
             const nearest = availableDates.reduce((prev, curr) =>
@@ -170,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========== Load dates index, then load latest ==========
-    fetch(`data/dates.json?${cacheBuster}`)
+    fetch(`${channel.datesFile}?${cacheBuster}`)
         .then(r => r.ok ? r.json() : Promise.reject('No dates.json'))
         .then(idx => {
             availableDates = idx.dates || [];
@@ -189,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     function loadLatestData() {
-        return fetch(`data/latest_ranks.json?${cacheBuster}`)
+        return fetch(`${channel.latestFile}?${cacheBuster}`)
             .then(r => {
                 if (!r.ok) throw new Error('Network error');
                 return r.json();
@@ -198,8 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 allData = data;
                 // Set current index from dates list
                 const latestDate = data.date;
-                currentDateIndex = availableDates.indexOf(latestDate);
-                if (currentDateIndex === -1) {
+                currentDateIndex = latestDate ? availableDates.indexOf(latestDate) : -1;
+                if (latestDate && currentDateIndex === -1) {
                     // Date might not be in index yet (e.g., dates.json not regenerated)
                     availableDates.push(latestDate);
                     availableDates.sort();
@@ -209,13 +213,11 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => {
                 console.error(err);
-                waterfall.innerHTML = '<p style="color:#f87171;padding:20px;">数据加载失败，请刷新重试。</p>';
+                waterfall.innerHTML = `<p style="color:#f87171;padding:20px;">「${channel.name}」频道暂无数据。请等待每日爬虫首次运行，或本地执行 python scrape_fanqie_ranks.py --channel ${channel.id}</p>`;
             });
     }
 
     function loadDateData(dateStr) {
-        // dateStr = "YYYY-MM-DD", file = fanqie_female_new_ranks_YYYYMMDD.json
-        const fileDateStr = dateStr.replace(/-/g, '');
         const isLatest = currentDateIndex === availableDates.length - 1;
 
         if (isLatest) {
@@ -227,8 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show loading state
         waterfall.innerHTML = '<p style="color:var(--text-muted);padding:20px;">加载中...</p>';
 
-        const snapshotUrl = `data/fanqie_female_new_ranks_${fileDateStr}.json?${cacheBuster}`;
-        const trendUrl = `data/trends/${dateStr}.json?${cacheBuster}`;
+        const snapshotUrl = `${window.FanqieChannels.snapshotUrl(channel, dateStr)}?${cacheBuster}`;
+        const trendUrl = `${channel.trendsDir}/${dateStr}.json?${cacheBuster}`;
 
         // Load snapshot + trends in parallel
         Promise.all([
@@ -286,8 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyData(data) {
+        const categories = data.categories || [];
         const prevInfo = data.prev_date ? ` (对比 ${data.prev_date})` : '';
-        updateDate.textContent = `${data.date}${prevInfo}`;
+        updateDate.textContent = data.date
+            ? `${data.date}${prevInfo}`
+            : `「${channel.name}」暂无数据`;
         updateDateNav();
 
         // Remember current category before re-rendering
@@ -295,22 +300,32 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCategories();
 
         // Try to restore previously selected category, otherwise pick first
-        const categoryExists = savedCategory && data.categories.some(c => c.name === savedCategory);
+        const categoryExists = savedCategory && categories.some(c => c.name === savedCategory);
         if (categoryExists) {
             selectCategory(savedCategory);
             // Also update sidebar active state
             document.querySelectorAll('#category-list li').forEach(el => {
                 el.classList.toggle('active', el.dataset.category === savedCategory);
             });
-        } else if (data.categories.length > 0) {
-            selectCategory(data.categories[0].name);
+        } else if (categories.length > 0) {
+            selectCategory(categories[0].name);
+        } else {
+            waterfall.innerHTML = `<p style="color:var(--text-muted);padding:20px;">「${channel.name}」频道暂无分类数据。请等待每日爬虫首次运行，或本地执行 python scrape_fanqie_ranks.py --channel ${channel.id}</p>`;
         }
     }
 
     // ========== Render sidebar categories ==========
     function renderCategories() {
         categoryList.innerHTML = '';
-        allData.categories.forEach((cat, i) => {
+        const cats = (allData && allData.categories) || [];
+        if (cats.length === 0) {
+            const li = document.createElement('li');
+            li.className = 'loading-item';
+            li.textContent = '暂无分类';
+            categoryList.appendChild(li);
+            return;
+        }
+        cats.forEach((cat, i) => {
             const li = document.createElement('li');
             li.dataset.category = cat.name;
 
@@ -448,7 +463,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const rank = index + 1;
             const card = document.createElement('a');
             const bookId = extractBookId(book.url);
-            card.href = bookId ? `book.html?id=${encodeURIComponent(bookId)}` : 'javascript:void(0)';
+            card.href = bookId
+                ? window.FanqieChannels.withChannel(`book.html?id=${encodeURIComponent(bookId)}`)
+                : 'javascript:void(0)';
             card.rel = 'noopener';
             card.className = 'book-card';
 

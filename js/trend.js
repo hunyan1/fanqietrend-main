@@ -4,22 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const rangeButtons = document.querySelectorAll('.range-btn');
     const cacheBuster = `v=${Math.floor(Date.now() / 600000)}`;
 
+    const channel = window.FanqieChannels.applyPageMeta();
     let categories = [];
     let trendRows = [];
     let latestData = null;
     let marketSummaryData = null;
     let selectedCategory = '';
     let selectedDays = 7;
-
-    const genreGroups = [
-        { name: '古风言情', categories: ['古风世情', '古言脑洞', '宫斗宅斗', '种田'] },
-        { name: '现代言情', categories: ['现言脑洞', '豪门总裁', '职场婚恋', '青春甜宠'] },
-        { name: '幻想言情', categories: ['玄幻言情', '科幻末世', '悬疑脑洞', '女频悬疑'] },
-        { name: '快穿衍生', categories: ['快穿', '女频衍生'] },
-        { name: '年代民国', categories: ['年代', '民国言情'] },
-        { name: '娱乐星光', categories: ['星光璀璨'] },
-        { name: '游戏体育', categories: ['游戏体育'] },
-    ];
+    const genreGroups = channel.genreGroups;
 
     const els = {
         marketSummary: document.getElementById('market-summary'),
@@ -38,12 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     async function init() {
         try {
             const [dateIndex, latestIndex, latestAll, marketSummary] = await Promise.all([
-                fetchJson(`data/dates.json?${cacheBuster}`),
-                fetchJson(`api/lastest.json?${cacheBuster}`).catch(() => null),
-                fetchJson(`api/lastest/all.json?${cacheBuster}`)
-                    .catch(() => fetchJson(`data/latest_ranks.json?${cacheBuster}`)),
-                fetchJson(`data/market_summary.json?${cacheBuster}`).catch(() => null),
+                fetchJson(`${channel.datesFile}?${cacheBuster}`).catch(() => ({ dates: [] })),
+                fetchJson(`${channel.apiIndex}?${cacheBuster}`).catch(() => null),
+                fetchJson(`${channel.apiAll}?${cacheBuster}`)
+                    .catch(() => fetchJson(`${channel.latestFile}?${cacheBuster}`).catch(() => null)),
+                fetchJson(`${channel.marketFile}?${cacheBuster}`).catch(() => null),
             ]);
+            if (!latestAll) {
+                renderEmpty(`「${channel.name}」频道暂无可分析的趋势数据。`);
+                return;
+            }
             latestData = latestAll;
             marketSummaryData = marketSummary;
 
@@ -54,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dates = (dateIndex.dates || []).slice().sort();
             const trendDates = dates.slice(1);
             const trendFiles = await Promise.all(
-                trendDates.map(date => fetchJson(`data/trends/${date}.json?${cacheBuster}`).catch(() => null))
+                trendDates.map(date => fetchJson(`${channel.trendsDir}/${date}.json?${cacheBuster}`).catch(() => null))
             );
             trendRows = trendFiles
                 .filter(Boolean)
@@ -77,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadCategoriesFallback() {
-        const latest = await fetchJson(`data/latest_ranks.json?${cacheBuster}`);
+        const latest = await fetchJson(`${channel.latestFile}?${cacheBuster}`);
         return (latest.categories || []).map(cat => cat.name);
     }
 
@@ -287,14 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function collectHotThemes(rowsWindow) {
-        const keywords = [
-            '重生', '穿书', '快穿', '系统', '空间', '团宠', '萌宝', '幼崽', '女配', '炮灰',
-            '反派', '权臣', '宅斗', '宫斗', '和离', '替嫁', '逃荒', '种田', '美食', '经商',
-            '年代', '七零', '八零', '军婚', '豪门', '总裁', '真假千金', '先婚后爱', '追妻',
-            '甜宠', '双洁', '强制爱', '无CP', '末世', '废土', '天灾', '囤货', '异能',
-            '国运', '星际', '修仙', '玄学', '无限流', '悬疑', '直播', '综艺', '娱乐圈',
-            '校园', '暗恋', '青梅竹马', '民国', '兽世', '远古', '基建'
-        ];
+        const keywords = channel.keywords;
         const scoreMap = new Map(keywords.map(name => [name, { name, count: 0, categories: new Set() }]));
 
         const latestBookMap = buildLatestBookMap();
@@ -395,9 +384,11 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = items.map(item => {
             const book = latestBookMap.get(item.title) || {};
             const bookId = extractBookId(book.url);
-            const detailUrl = bookId
-                ? `book.html?id=${encodeURIComponent(bookId)}`
-                : `book.html?title=${encodeURIComponent(item.title)}`;
+            const detailUrl = window.FanqieChannels.withChannel(
+                bookId
+                    ? `book.html?id=${encodeURIComponent(bookId)}`
+                    : `book.html?title=${encodeURIComponent(item.title)}`
+            );
 
             return `
             <a class="compact-row compact-row-link" href="${detailUrl}" target="_blank" rel="noopener noreferrer">

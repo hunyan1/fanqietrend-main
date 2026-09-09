@@ -196,6 +196,53 @@ input:focus-visible {
     font-weight: 650;
 }
 
+.channel-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.channel-btn {
+    min-height: 30px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--surface);
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.74rem;
+    font-weight: 760;
+    text-decoration: none;
+}
+
+.channel-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+}
+
+.channel-btn.active {
+    border-color: rgba(240, 79, 56, 0.28);
+    background: var(--accent);
+    color: var(--accent-on);
+}
+
+.channel-hint {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+}
+
+.trend-channel-label {
+    margin-top: 8px;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 720;
+}
+
 .update-date {
     display: inline-flex;
     margin-top: 10px;
@@ -317,6 +364,7 @@ input:focus-visible {
 .mobile-menu-btn,
 .range-btn,
 .category-chip,
+.channel-btn,
 .back-link,
 .source-link-btn,
 .hot-type-row,

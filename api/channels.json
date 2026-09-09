@@ -1,0 +1,28 @@
+{
+  "channels": [
+    {
+      "id": "female",
+      "name": "女频",
+      "subtitle": "女频新书榜追踪",
+      "rank_label": "新书榜",
+      "api_index": "api/lastest.json",
+      "api_all": "api/lastest/all.json"
+    },
+    {
+      "id": "male",
+      "name": "男频",
+      "subtitle": "男频新书榜追踪",
+      "rank_label": "新书榜",
+      "api_index": "api/male/lastest.json",
+      "api_all": "api/male/lastest/all.json"
+    },
+    {
+      "id": "audio",
+      "name": "听书",
+      "subtitle": "听书热播榜追踪",
+      "rank_label": "阅读热榜",
+      "api_index": "api/audio/lastest.json",
+      "api_all": "api/audio/lastest/all.json"
+    }
+  ]
+}
