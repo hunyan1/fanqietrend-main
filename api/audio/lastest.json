@@ -1,18 +1,18 @@
 {
   "channel": "audio",
-  "date": "2026-09-13",
-  "prev_date": "2026-09-12",
+  "date": "2026-09-14",
+  "prev_date": "2026-09-13",
   "types": [
     {
       "type": "all",
       "url": "api/audio/lastest/all.json",
       "category_count": 37,
-      "book_count": 739
+      "book_count": 740
     },
     {
       "type": "男频 · 西方奇幻",
       "url": "api/audio/lastest/%E7%94%B7%E9%A2%91___%E8%A5%BF%E6%96%B9%E5%A5%87%E5%B9%BB.json",
-      "book_count": 19
+      "book_count": 20
     },
     {
       "type": "男频 · 东方仙侠",
