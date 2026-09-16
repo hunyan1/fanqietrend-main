@@ -1,7 +1,7 @@
 {
   "channel": "audio",
-  "date": "2026-09-15",
-  "prev_date": "2026-09-14",
+  "date": "2026-09-16",
+  "prev_date": "2026-09-15",
   "types": [
     {
       "type": "all",
@@ -12,7 +12,7 @@
     {
       "type": "男频 · 西方奇幻",
       "url": "api/audio/lastest/%E7%94%B7%E9%A2%91___%E8%A5%BF%E6%96%B9%E5%A5%87%E5%B9%BB.json",
-      "book_count": 19
+      "book_count": 20
     },
     {
       "type": "男频 · 东方仙侠",
@@ -107,7 +107,7 @@
     {
       "type": "女频 · 古风世情",
       "url": "api/audio/lastest/%E5%A5%B3%E9%A2%91___%E5%8F%A4%E9%A3%8E%E4%B8%96%E6%83%85.json",
-      "book_count": 20
+      "book_count": 19
     },
     {
       "type": "女频 · 科幻末世",
